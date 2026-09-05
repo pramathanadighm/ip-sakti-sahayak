@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
-from backend.app.core.config import settings
-
+from app.core.config import settings
 db_url = settings.POSTGRES_URL if settings.USE_POSTGRES else settings.SQLITE_URL
 connect_args = {"check_same_thread": False} if "sqlite" in db_url else {}
 
