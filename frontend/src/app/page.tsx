@@ -175,11 +175,11 @@ export default function Home() {
       />
 
       {/* Main Split-Screen Workspace */}
-      <div className="flex-1 flex overflow-hidden relative">
+      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
         {/* Left Pane: Chat Counsel Panel */}
         <div
-          style={{ width: `${splitPercent}%` }}
-          className="h-full overflow-hidden transition-[width] duration-75 ease-out"
+          style={{ "--pane-width": `${splitPercent}%` } as React.CSSProperties}
+      className="w-full h-[50%] lg:w-[var(--pane-width)] lg:h-full overflow-hidden transition-all duration-75 ease-out"
         >
           <ChatPanel
             messages={messages}
@@ -193,7 +193,7 @@ export default function Home() {
         {/* Resizable Divider Handle */}
         <div
           onMouseDown={handleMouseDown}
-          className={`w-1.5 hover:w-2 bg-slate-800 hover:bg-amber-500/80 cursor-col-resize z-20 flex items-center justify-center transition-all ${
+          className={`hidden lg:flex w-1.5 hover:w-2 bg-slate-800 hover:bg-amber-500/80 cursor-col-resize z-20 items-center justify-center transition-all ${
             isDragging ? "bg-amber-500 w-2" : ""
           }`}
           title="Drag to resize workspace split"
