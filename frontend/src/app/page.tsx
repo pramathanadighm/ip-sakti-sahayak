@@ -22,7 +22,7 @@ export default function Home() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [loading, setLoading] = useState(false);
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
-
+  const [mobileTab, setMobileTab] = useState<'chat' | 'pdf'>('chat');
   // PDF Viewer Navigation & Highlight State
   const [targetPage, setTargetPage] = useState<number>(1);
   const [activeCitation, setActiveCitation] = useState<Citation | null>(null);
@@ -174,12 +174,18 @@ export default function Home() {
         onOpenUpload={() => setUploadModalOpen(true)}
       />
 
+      {/* Mobile Tab Toggle */}
+      <div className="flex lg:hidden w-full border-b border-slate-700 bg-[#0B101C] p-2 gap-2 shrink-0 z-50">
+        <button onClick={() => setMobileTab('chat')} className={`flex-1 py-2 text-sm font-semibold rounded-md transition-colors ${mobileTab === 'chat' ? 'bg-amber-600 text-white' : 'bg-slate-800 text-slate-400'}`}>💬 CHAT</button>
+        <button onClick={() => setMobileTab('pdf')} className={`flex-1 py-2 text-sm font-semibold rounded-md transition-colors ${mobileTab === 'pdf' ? 'bg-amber-600 text-white' : 'bg-slate-800 text-slate-400'}`}>📄 DOCUMENT</button>
+      </div>
+
       {/* Main Split-Screen Workspace */}
-      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
+      <div className="flex-1 flex overflow-hidden relative">
         {/* Left Pane: Chat Counsel Panel */}
         <div
           style={{ "--pane-width": `${splitPercent}%` } as React.CSSProperties}
-      className="w-full h-[50%] lg:w-[var(--pane-width)] lg:h-full overflow-hidden transition-all duration-75 ease-out"
+      className={`${mobileTab === 'chat' ? 'flex' : 'hidden'} lg:flex flex-col w-full lg:w-[var(--pane-width)] h-full overflow-hidden transition-all duration-75 ease-out`}
         >
           <ChatPanel
             messages={messages}
@@ -203,8 +209,8 @@ export default function Home() {
 
         {/* Right Pane: PDF Viewer with Bounding Box Highlights */}
         <div
-          style={{ width: `${100 - splitPercent}%` }}
-          className="h-full overflow-hidden transition-[width] duration-75 ease-out"
+          style={{ "--pane-width": `${100 - splitPercent}%` } as React.CSSProperties}
+          className={`${mobileTab === 'pdf' ? 'flex' : 'hidden'} lg:flex flex-col w-full lg:w-[var(--pane-width)] h-full overflow-hidden transition-all duration-75 ease-out`}
         >
           <PDFViewerPanel
             documentUrl={documentPdfUrl}
