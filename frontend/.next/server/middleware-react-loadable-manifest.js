@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{\"components\\\\pdf\\\\PDFViewerPanel.tsx -> pdfjs-dist\":{\"id\":\"components\\\\pdf\\\\PDFViewerPanel.tsx -> pdfjs-dist\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_pdfjs-dist_build_pdf_js.js\"]}}"
+self.__REACT_LOADABLE_MANIFEST='{"components\\\\pdf\\\\PDFViewerPanel.tsx -> pdfjs-dist":{"id":3194,"files":["static/chunks/7a49ec60.267a882800469226.js","static/chunks/267.2138a4eb63ba5824.js"]}}';

@@ -428,27 +428,9 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-2">
-          {/* Language Selector */}
-          <div className="flex items-center space-x-1.5 px-3 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300 shrink-0 hover:border-amber-500/50 transition">
-            <Languages className="w-4 h-4 text-amber-400" />
-            <select
-              value={currentLanguage}
-              onChange={(e) => setCurrentLanguage(e.target.value as LanguageCode)}
-              disabled={loading}
-              className="bg-transparent text-xs text-slate-200 focus:outline-none cursor-pointer font-medium pr-1"
-              title={t.activeLanguage}
-            >
-              {supportedLanguages.map((lang) => (
-                <option key={lang.code} value={lang.code} className="bg-slate-900 text-slate-100 py-1">
-                  {lang.label}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Text Input */}
-          <div className="relative flex-1 flex items-center">
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-2.5">
+          {/* Row 1: Full-width text input with embedded microphone on far right */}
+          <div className="relative w-full flex items-center">
             <input
               type="text"
               value={inputQuery}
@@ -482,15 +464,36 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
             </button>
           </div>
 
-          {/* Send Button */}
-          <button
-            type="submit"
-            disabled={!inputQuery.trim() || loading}
-            className="bg-amber-500 hover:bg-amber-400 disabled:opacity-40 disabled:hover:bg-amber-500 text-slate-950 font-bold p-3 rounded-xl transition shadow-lg shadow-amber-500/20 active:scale-95 shrink-0 flex items-center justify-center"
-            title={t.send}
-          >
-            <Send className="w-4 h-4" />
-          </button>
+          {/* Row 2: Language Options (Left) and Send/Submit Button (Right) */}
+          <div className="flex items-center justify-between w-full">
+            {/* Language Selector */}
+            <div className="flex items-center space-x-1.5 px-3 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300 shrink-0 hover:border-amber-500/50 transition">
+              <Languages className="w-4 h-4 text-amber-400" />
+              <select
+                value={currentLanguage}
+                onChange={(e) => setCurrentLanguage(e.target.value as LanguageCode)}
+                disabled={loading}
+                className="bg-transparent text-xs text-slate-200 focus:outline-none cursor-pointer font-medium pr-1"
+                title={t.activeLanguage}
+              >
+                {supportedLanguages.map((lang) => (
+                  <option key={lang.code} value={lang.code} className="bg-slate-900 text-slate-100 py-1">
+                    {lang.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Send / Submit Button */}
+            <button
+              type="submit"
+              disabled={!inputQuery.trim() || loading}
+              className="bg-amber-500 hover:bg-amber-400 disabled:opacity-40 disabled:hover:bg-amber-500 text-slate-950 font-bold px-4 py-2 rounded-xl transition shadow-lg shadow-amber-500/20 active:scale-95 shrink-0 flex items-center justify-center"
+              title={t.send}
+            >
+              <Send className="w-4 h-4" />
+            </button>
+          </div>
         </form>
       </div>
     </div>

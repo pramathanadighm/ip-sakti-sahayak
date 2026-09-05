@@ -210,7 +210,7 @@ export default function Home() {
         {/* Right Pane: PDF Viewer with Bounding Box Highlights */}
         <div
           style={{ "--pane-width": `${100 - splitPercent}%` } as React.CSSProperties}
-          className={`${mobileTab === 'pdf' ? 'flex' : 'hidden'} lg:flex flex-col w-full lg:w-[var(--pane-width)] h-full overflow-hidden transition-all duration-75 ease-out`}
+          className={`${mobileTab === 'pdf' ? 'flex' : 'hidden'} lg:flex flex-col w-full lg:w-[var(--pane-width)] h-full overflow-auto transition-all duration-75 ease-out`}
         >
           <PDFViewerPanel
             documentUrl={documentPdfUrl}
