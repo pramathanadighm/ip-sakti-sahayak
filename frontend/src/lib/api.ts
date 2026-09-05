@@ -1,7 +1,6 @@
 import { ChatRequest, ChatResponse, DocumentMetadata, UploadResponse } from "@/types";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
-
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "https://tapioca-baton-stereo.ngrok-free.dev";
 export async function checkBackendHealth(): Promise<{ status: string; qdrant_mode: string; db_mode: string } | null> {
   try {
     const res = await fetch(`${BACKEND_URL}/health`, { cache: "no-store" });
