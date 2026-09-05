@@ -1,9 +1,9 @@
 import time
 from fastapi import APIRouter, HTTPException
-from backend.app.schemas.chat import ChatRequest, ChatResponse
-from backend.app.services.vector_store import vector_store
-from backend.app.services.llm_service import llm_service
-from backend.app.core.config import settings
+from app.schemas.chat import ChatRequest, ChatResponse
+from app.services.vector_store import vector_store
+from app.services.llm_service import llm_service
+from app.core.config import settings
 
 router = APIRouter(prefix="/chat", tags=["Chat"])
 

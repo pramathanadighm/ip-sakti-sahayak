@@ -1,8 +1,8 @@
 import uuid
 from typing import List, Dict, Any, Optional
 from qdrant_client import QdrantClient, models
-from backend.app.core.config import settings
-from backend.app.services.embeddings import embedding_service
+from app.core.config import settings
+from app.services.embeddings import embedding_service
 
 class QdrantVectorStore:
     def __init__(self):

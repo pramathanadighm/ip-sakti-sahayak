@@ -2,8 +2,8 @@ import json
 import re
 import time
 from typing import List, Dict, Any
-from backend.app.core.config import settings
-from backend.app.schemas.chat import LLMStructuredOutput, Citation
+from app.core.config import settings
+from app.schemas.chat import LLMStructuredOutput, Citation
 
 SYSTEM_PROMPT_TEMPLATE = """You are IP-SAKTI Sahayak, an authoritative Senior Indian Patent Attorney and Legal Analyst specializing in Indian and International Intellectual Property Law (The Patents Act 1970, Patent Rules 2003, CRI Examination Guidelines, and Judicial Precedents).
 

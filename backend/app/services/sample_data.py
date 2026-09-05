@@ -2,10 +2,10 @@ import os
 from pathlib import Path
 import fitz  # PyMuPDF
 from sqlalchemy.orm import Session
-from backend.app.core.config import settings
-from backend.app.models.document import Document
-from backend.app.services.pdf_parser import PDFParserService
-from backend.app.services.vector_store import vector_store
+from app.core.config import settings
+from app.models.document import Document
+from app.services.pdf_parser import PDFParserService
+from app.services.vector_store import vector_store
 
 SAMPLE_DOC_ID = "doc_patents_act_1970_cri"
 SAMPLE_DOC_FILENAME = "The_Patents_Act_1970_Section_3k_Guidelines.pdf"

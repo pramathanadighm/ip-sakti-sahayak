@@ -1,6 +1,6 @@
-from backend.app.schemas.chat import Citation, ChatRequest, ChatResponse, LLMStructuredOutput
-from backend.app.services.llm_service import llm_service
-from backend.app.services.vector_store import vector_store
+from app.schemas.chat import Citation, ChatRequest, ChatResponse, LLMStructuredOutput
+from app.services.llm_service import llm_service
+from app.services.vector_store import vector_store
 
 def test_pydantic_chat_and_citation_schemas():
     # 1. Test Citation Schema

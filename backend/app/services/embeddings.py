@@ -3,7 +3,7 @@ import re
 import hashlib
 from typing import List, Dict, Tuple, Any
 import numpy as np
-from backend.app.core.config import settings
+from app.core.config import settings
 
 class EmbeddingService:
     def __init__(self):

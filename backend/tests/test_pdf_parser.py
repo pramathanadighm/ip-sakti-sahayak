@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
-from backend.app.services.sample_data import create_sample_pdf_if_missing, SAMPLE_DOC_FILENAME
-from backend.app.services.pdf_parser import PDFParserService
-from backend.app.core.config import settings
+from app.services.sample_data import create_sample_pdf_if_missing, SAMPLE_DOC_FILENAME
+from app.services.pdf_parser import PDFParserService
+from app.core.config import settings
 
 def test_sample_pdf_creation_and_bbox_extraction():
     sample_pdf_path = settings.SAMPLE_DIR / SAMPLE_DOC_FILENAME

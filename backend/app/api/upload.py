@@ -3,12 +3,12 @@ import uuid
 import shutil
 from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
 from sqlalchemy.orm import Session
-from backend.app.core.config import settings
-from backend.app.db.session import get_db
-from backend.app.models.document import Document
-from backend.app.schemas.document import UploadResponse
-from backend.app.services.pdf_parser import PDFParserService
-from backend.app.services.vector_store import vector_store
+from app.core.config import settings
+from app.db.session import get_db
+from app.models.document import Document
+from app.schemas.document import UploadResponse
+from app.services.pdf_parser import PDFParserService
+from app.services.vector_store import vector_store
 
 router = APIRouter(prefix="/upload", tags=["Upload"])
 

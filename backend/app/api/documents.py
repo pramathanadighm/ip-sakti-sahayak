@@ -3,10 +3,10 @@ from typing import List
 from fastapi import APIRouter, HTTPException, Depends
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
-from backend.app.core.config import settings
-from backend.app.db.session import get_db
-from backend.app.models.document import Document
-from backend.app.schemas.document import DocumentSchema
+from app.core.config import settings
+from app.db.session import get_db
+from app.models.document import Document
+from app.schemas.document import DocumentSchema
 
 router = APIRouter(prefix="/documents", tags=["Documents"])
 
